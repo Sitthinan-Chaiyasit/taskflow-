@@ -1,0 +1,10 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<h1 class="title">ลบงาน</h1>
+<p>คุณต้องการลบงาน <strong>{{ task.title }}</strong> ใช่หรือไม่?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-delete">ลบ</button>
+    <a href="/" class="btn btn-cancel">ยกเลิก</a>
+</form>
+{% endblock %}

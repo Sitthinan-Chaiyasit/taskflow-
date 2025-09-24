@@ -1,0 +1,21 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<h1 class="title">งานที่ต้องทำ</h1>
+<ul class="task-list">
+    {% for task in tasks %}
+    <li class="task-item {% if task.completed %}completed{% endif %}">
+        <div class="task-title">{{ task.title }}</div>
+        <div class="task-desc">{{ task.description }}</div>
+        <div class="task-meta">สร้างเมื่อ: {{ task.created_at|date:'d/m/Y H:i' }}
+            {% if task.deadline %}<br>ครบกำหนด: <span style="color:#ff6600">{{ task.deadline|date:'d/m/Y H:i' }}</span>{% endif %}
+        </div>
+        <div class="task-actions">
+            <a href="{% url 'task_update' task.pk %}" class="btn btn-edit">แก้ไข</a>
+            <a href="{% url 'task_delete' task.pk %}" class="btn btn-delete">ลบ</a>
+        </div>
+    </li>
+    {% empty %}
+    <li>ยังไม่มีงาน</li>
+    {% endfor %}
+</ul>
+{% endblock %}
