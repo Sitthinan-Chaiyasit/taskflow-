@@ -82,9 +82,10 @@ WSGI_APPLICATION = 'worklog.wsgi.application'
 import os
 try:
     import dj_database_url
-    if os.environ.get('DATABASE_URL'):
+    db_url = os.environ.get('DATABASE_URL')
+    if db_url:
         DATABASES = {
-            'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+            'default': dj_database_url.config(default=db_url)
         }
     else:
         DATABASES = {
@@ -100,6 +101,7 @@ except ImportError:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
