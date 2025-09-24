@@ -18,28 +18,24 @@
     </nav>
     <main class="container">
         <header>
-            <h1>ระบบบันทึกงานส่วนตัว</h1>
-            <p>จัดการงานของคุณอย่างมีประสิทธิภาพ</p>
+            <h1 style="margin-bottom:0.5rem;">ระบบบันทึกงานส่วนตัว</h1>
+            <p style="color:#aaa;margin-top:0;">จัดการงานของคุณอย่างมีประสิทธิภาพ</p>
         </header>
         {% block content %}
-            <h2>งานที่ต้องทำ</h2>
-            {% if tasks %}
-                {% for task in tasks %}
-                    <div class="card">
-                        <div class="card-title">{{ task.title }}</div>
-                        <div>{{ task.description }}</div>
-                        <div class="card-actions">
-                            <a href="{% url 'task_edit' task.id %}" class="btn">แก้ไข</a>
-                            <a href="{% url 'task_delete' task.id %}" class="btn">ลบ</a>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <div class="card">
-                    <div class="card-title">ยังไม่มีงาน</div>
-                    <div>บันทึกงานที่คุณต้องการทำ</div>
-                </div>
-            {% endif %}
+        <h2 style="color:#ff6600;margin-top:2rem;">งานที่ต้องทำ</h2>
+        <div class="card" style="margin-top:1.5rem;">
+            <div class="card-title" style="font-size:1.3rem;">คณิต</div>
+            <div style="margin-bottom:0.5rem;">สร้างเมื่อ: 24/09/2025 11:30</div>
+            <div style="margin-bottom:0.5rem;color:#ff6600;">ครบกำหนด: 25/09/2025 18:30</div>
+            <div class="card-actions">
+                <a href="#" class="btn">แก้ไข</a>
+                <a href="#" class="btn">ลบ</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">ยังไม่มีงาน</div>
+            <div>บันทึกงานที่คุณต้องการทำ</div>
+        </div>
         {% endblock %}
     </main>
     <footer class="footer">
