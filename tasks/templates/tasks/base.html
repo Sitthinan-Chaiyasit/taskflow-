@@ -1,29 +1,49 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worklog</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&display=swap">
-    <link rel="stylesheet" href="/static/tasks/style.css">
+    <link rel="stylesheet" href="{% static 'tasks/style.css' %}">
 </head>
-
 <body>
-    <div class="bg-decor"></div>
     <nav class="navbar">
-        <div class="logo"><span style="font-size:1.7rem;vertical-align:middle;"></span> WORKLOG</div>
-        <a href="/" class="nav-link">งานทั้งหมด</a>
-        <a href="/create/" class="nav-link">เพิ่มงาน</a>
+        <div class="logo">WORKLOG</div>
+        <div class="nav-links">
+            <a href="{% url 'task_list' %}" class="nav-link">งานทั้งหมด</a>
+            <a href="{% url 'task_create' %}" class="nav-link btn">เพิ่มงาน</a>
+        </div>
     </nav>
-    <header class="header">
-        <h2>ระบบบันทึกงานส่วนตัว</h2>
-        <p>จัดการงานของคุณอย่างมีประสิทธิภาพ</p>
-    </header>
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
+    <main class="container">
+        <header>
+            <h1>ระบบบันทึกงานส่วนตัว</h1>
+            <p>จัดการงานของคุณอย่างมีประสิทธิภาพ</p>
+        </header>
+        {% block content %}
+            <h2>งานที่ต้องทำ</h2>
+            {% if tasks %}
+                {% for task in tasks %}
+                    <div class="card">
+                        <div class="card-title">{{ task.title }}</div>
+                        <div>{{ task.description }}</div>
+                        <div class="card-actions">
+                            <a href="{% url 'task_edit' task.id %}" class="btn">แก้ไข</a>
+                            <a href="{% url 'task_delete' task.id %}" class="btn">ลบ</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="card">
+                    <div class="card-title">ยังไม่มีงาน</div>
+                    <div>บันทึกงานที่คุณต้องการทำ</div>
+                </div>
+            {% endif %}
+        {% endblock %}
+    </main>
     <footer class="footer">
-        <span>บันทึกงานที่คุณต้องการทำ</span>
+        <span>© 2025 WORKLOG | Productivity for Everyone</span>
     </footer>
 </body>
 </html>

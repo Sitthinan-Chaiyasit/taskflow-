@@ -207,3 +207,4 @@ marimo/_lsp/
 __marimo__/
 ## .vercel (keep for Vercel config)
 ## staticfiles/ (removed from ignore to allow deploy)
+.vercel
