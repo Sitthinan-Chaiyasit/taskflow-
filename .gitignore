@@ -205,4 +205,5 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-.vercel
+## .vercel (keep for Vercel config)
+## staticfiles/ (removed from ignore to allow deploy)
