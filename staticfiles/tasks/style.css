@@ -1,0 +1,196 @@
+body {
+    background: #181818;
+    color: #fff;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+}
+.navbar {
+    background: #222;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ff6600;
+    letter-spacing: 2px;
+    margin-right: 2rem;
+}
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1.5rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.nav-link:hover {
+    color: #ff6600;
+}
+.container {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: #222;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    padding: 2rem;
+}
+.title {
+    color: #ff6600;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+.task-item {
+    background: #181818;
+    border: 2px solid #ff6600;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+}
+.task-item.completed {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+.task-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+}
+.task-desc {
+    color: #ccc;
+    margin: 0.5rem 0 0.5rem 0;
+}
+.task-meta {
+    font-size: 0.9rem;
+    color: #ff6600;
+    margin-bottom: 0.5rem;
+}
+.task-actions {
+    margin-top: 0.5rem;
+}
+.btn {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.btn-edit {
+    background: #fff;
+    color: #ff6600;
+    border: 2px solid #ff6600;
+}
+
+.btn-edit:hover {
+    background: #ff6600;
+    color: #fff;
+}
+
+.btn-animate {
+    transition: transform 0.1s;
+}
+.btn-animate:active {
+    transform: scale(0.95);
+}
+.btn-delete {
+    background: #ff6600;
+    color: #fff;
+    border: 2px solid #ff6600;
+}
+.btn-delete:hover {
+    background: #fff;
+    color: #ff6600;
+}
+.btn-save {
+    background: #ff6600;
+    color: #fff;
+    border: 2px solid #ff6600;
+}
+.btn-save:hover {
+    background: #fff;
+    color: #ff6600;
+}
+.btn-cancel {
+    background: #222;
+    color: #fff;
+    border: 2px solid #fff;
+}
+.btn-cancel:hover {
+    background: #fff;
+    color: #222;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 2px solid #ff6600;
+    background: #181818;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+}
+input[type="checkbox"] {
+    width: auto;
+    margin-left: 0.5rem;
+}
+
+.header {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.header h2 {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.header p {
+    color: #ff6600;
+    font-size: 1.1rem;
+    margin: 0;
+}
+.footer {
+    text-align: center;
+    padding: 1.2rem 0;
+    background: #222;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 2rem;
+    border-top: 2px solid #ff6600;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+}
+.bg-decor {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 10% 10%, #ff6600 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, #fff 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, #222 0%, transparent 60%);
+    opacity: 0.12;
+}
+.container, .navbar, .header, .footer {
+    position: relative;
+    z-index: 1;
+}
